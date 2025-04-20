@@ -52,6 +52,7 @@ Advantages of this design:
 * Pressure sensitive adhesive to attach laminated solar cells and foam/frame and also rear carbon fiber sheet to foam/frame
 * Solar busbar and flux (I used 2x 1mm x 0.2mm busbars for each connection)
 * 3mm architectural foam
+* Magnets from K&J (2x B631-N52 for magnetic closure)
 * PETG filament for frame.  I printed the frame with 0.8mm lateral walls and approximately 0.6mm top and bottom thickness with 20% grid infill.  I made the hinge areas 100% infill using a box in prusa slicer
 *   Large panel CAD (approx 13W): https://a360.co/3wPAMOi
 *   Small panel CAD (approx 10W): https://a360.co/4cJ9c5N
