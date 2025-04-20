@@ -1,7 +1,7 @@
 # Backpacking MPPT Solar Charger Version 2
 Solar charger designed to charge lithium ion cells directly, bypassing USB charging circuit.  
 
-![alt text](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_105105.jpg "Logo Title Text 1")
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_105105.jpg)
 
 
 ## Features
