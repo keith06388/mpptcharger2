@@ -50,5 +50,20 @@ Installation steps for Lixada panel:
 * Solder new assembled pcb with housing and leads to panel
 * Use epoxy to glue housing to panel
 
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_105228.jpg)
 
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_104936.jpg)
 
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_104617.jpg)
+
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_104551.jpg)
+
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_104542.jpg)
+
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_103334.jpg)
+
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_101226.jpg)
+
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_094351.jpg)
+
+![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_074910.jpg)
