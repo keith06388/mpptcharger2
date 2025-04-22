@@ -25,6 +25,16 @@ Advantages of this design:
 * Primary components:
 *   BQ25622e - mppt solar battery charging chip
 *   ATTINY1616 - arduino compatable microcontroller
+*   3.8-18V input voltage range
+*   Up to 3.0A charging current
+*   10hz MMPT update rate
+*   40mV MPPT voltage resolution
+*   Up to 95% conversion efficiency
+* Connections:
+*   S+/S- Solar input
+*   B+/B- Battery output
+*   UPDI Programming port
+*   LCD 0.42" SSD1306 display
 
 ## 3D Printed Parts
 * Housing (printed with JLCPCB in nylon)
