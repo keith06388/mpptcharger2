@@ -7,15 +7,15 @@ Solar charger designed to charge lithium ion cells directly, bypassing USB charg
 ## Features
 
 Advantages of this design:
-* Very high efficiecy buck converter
+* Very high efficiency buck converter
 * Full MPPT tracking using BQ25622e chip (upgraded from BQ24650)
-* Intergrated power meter, source volatage, battery voltage, and battery charge indicator
+* Integrated power meter, source voltage, battery voltage, and battery charge indicator
 * Passthrough charging to charge device and battery simultaneously
 * Integrated battery attachment for simple attachment to pack while hiking
 * Automatically adjustable to different panel voltages (3.8-18V)
 * Avoid 2 stage voltage drop to cells for higher total efficiency (solar -> battery vs solar -> USB -> battery)
 * Magnetic battery contacts designed to avoid reverse polarity connection
-* Compatability with both Nitecore NL2150RX and Vapcell P2150A
+* Compatibility with both Nitecore NL2150RX and Vapcell P2150A
 * Easy connection for software updates
 
 ## PCB
@@ -24,7 +24,7 @@ Advantages of this design:
 * PCBA assembled by JLCPCB
 * Primary components:
 *   BQ25622e - mppt solar battery charging chip
-*   ATTINY1616 - arduino compatable microcontroller
+*   ATTINY1616 - arduino compatible microcontroller
 *   3.8-18V input voltage range
 *   Up to 3.0A charging current
 *   10hz MMPT update rate
@@ -38,11 +38,11 @@ Advantages of this design:
 
 ## 3D Printed Parts
 * Housing (printed with JLCPCB in nylon)
-* Positve and negative battery contacts (printed with PETG)
+* Positive and negative battery contacts (printed with PETG)
 *   Printing of the positive contact was paused to allow installation of the magnet into the housing before lip printed
 
 ## Purchased Parts
-* Magents from K&J (D42AH and D62SH)
+* Magnets from K&J (D42AH and D62SH)
 *   High temperature magnets to allow soldering without demagnetization
 * Sn42Bi58 solder for attaching wire to magnets at low temperature
 * 20AWG silicone flexible wire (red and black)
@@ -55,7 +55,7 @@ Advantages of this design:
 * ## Custom Panel Parts
 * Knurl pins (1.2mm x 20mm) https://www.amazon.com/dp/B0BC1VN8J9
 * Solar cells sunpower Gen 3 (small) or Gen 5 (large)
-*   Small cells car be orded cut into 3 sections, but I haven't found a source for cut large cell, but they can be cut with a fiber laser or potentially a razor or dremel
+*   Small cells can be ordered cut into 3 sections, but I haven't found a source for cut large cell, but they can be cut with a fiber laser or potentially a razor or dremel
 *   https://www.aliexpress.us/item/3256801658021801.html
 *   https://www.aliexpress.us/item/3256805555889765.html
 * Laminator sheets (5mil works well, but 3mil should work too)
