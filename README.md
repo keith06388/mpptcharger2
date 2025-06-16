@@ -23,18 +23,18 @@ Advantages of this design:
 *   Project link: https://u.easyeda.com/keith06388/solar-mppt-charger-v4
 * PCBA assembled by JLCPCB
 * Primary components:
-*   BQ25622e - mppt solar battery charging chip
-*   ATTINY1616 - arduino compatible microcontroller
-*   3.8-18V input voltage range
-*   Up to 3.0A charging current
-*   10hz MMPT update rate
-*   40mV MPPT voltage resolution
-*   Up to 95% conversion efficiency
+  * BQ25622e - mppt solar battery charging chip
+  * ATTINY1616 - arduino compatible microcontroller
+  * 3.8-18V input voltage range
+  * Up to 3.0A charging current
+  * 10hz MMPT update rate
+  * 40mV MPPT voltage resolution
+  * Up to 95% conversion efficiency
 * Connections:
-*   S+/S- Solar input
-*   B+/B- Battery output
-*   UPDI Programming port
-*   LCD 0.42" SSD1306 display
+  * S+/S- Solar input
+  * B+/B- Battery output
+  * UPDI Programming port
+  * LCD 0.42" SSD1306 display
 
 ## 3D Printed Parts
 * Housing (printed with JLCPCB in nylon)
@@ -43,7 +43,7 @@ Advantages of this design:
 
 ## Purchased Parts
 * Magnets from K&J (D42AH and D62SH)
-*   High temperature magnets to allow soldering without demagnetization
+  * High temperature magnets to allow soldering without demagnetization
 * Sn42Bi58 solder for attaching wire to magnets at low temperature
 * 20AWG silicone flexible wire (red and black)
 * 0.49" SSD1306 OLED
@@ -55,9 +55,9 @@ Advantages of this design:
 * ## Custom Panel Parts
 * Knurl pins (1.2mm x 20mm) https://www.amazon.com/dp/B0BC1VN8J9
 * Solar cells sunpower Gen 3 (small) or Gen 5 (large)
-*   Small cells can be ordered cut into 3 sections, but I haven't found a source for cut large cell, but they can be cut with a fiber laser or potentially a razor or dremel
-*   https://www.aliexpress.us/item/3256801658021801.html
-*   https://www.aliexpress.us/item/3256805555889765.html
+  * Small cells can be ordered cut into 3 sections, but I haven't found a source for cut large cell, but they can be cut with a fiber laser or potentially a razor or dremel
+  * https://www.aliexpress.us/item/3256801658021801.html
+  * https://www.aliexpress.us/item/3256805555889765.html
 * Laminator sheets (5mil works well, but 3mil should work too)
 * 0.2mm carbon fiber sheet for back side.  This could be substituted with plastic sheet to cut cost.  https://www.aliexpress.us/item/3256805950798977.html
 * Pressure sensitive adhesive to attach laminated solar cells and foam/frame and also rear carbon fiber sheet to foam/frame
@@ -65,8 +65,8 @@ Advantages of this design:
 * 3mm architectural foam
 * Magnets from K&J (2x B631-N52 for magnetic closure)
 * PETG filament for frame.  I printed the frame with 0.8mm lateral walls and approximately 0.6mm top and bottom thickness with 20% grid infill.  I made the hinge areas 100% infill using a box in prusa slicer
-*   Large panel CAD (approx 13W): https://a360.co/3wPAMOi
-*   Small panel CAD (approx 10W): https://a360.co/4cJ9c5N
+  * Large panel CAD (approx 13W): https://a360.co/3wPAMOi
+  * Small panel CAD (approx 10W): https://a360.co/4cJ9c5N
 
 ## Assembly
 Testing of the performance was completed by building a custom panel, however, this module could be used to replace the charge module on a panel such as the lixada solar panel available on amazon
@@ -81,15 +81,15 @@ Installation steps for Lixada panel:
 * UPDI programming can be performed with a cheap CH340 board and a Schottky diode installed across the TX and RX pins (with diode facing TX pin)
 * Programming requires a power supply (either benchtop or solar) and UPDI programmer with connections to ground and the UPDI programming pin
 * Before programming for the first time, the "megaTinyCore" board needs to be installed in Arduino and the bootloader should be burned (see image below for bootloader and programming settings, the COM port will need to be selected for your programmer port)
-* ![image](https://github.com/user-attachments/assets/0476ff46-d9d1-430e-9e03-7a6043f74d62)
+![image](https://github.com/user-attachments/assets/0476ff46-d9d1-430e-9e03-7a6043f74d62)
 * Once the bootloader is burned, the software can be installed.  The software is found in this repository and the following libraries need to be installed:
-*   Tiny4KOLED - installed through Arduino library manager
-*   BQ25622 - installed manually by copying the library from github to the arduino library folder: https://github.com/keith06388/PMIC_BQ25622
-*   With the programmer correctly connected (GND to battery or solar ground, and UPDI in contact with UPDI pin, the software can be installed using Sketch -> Upload using programmer
+  * Tiny4KOLED - installed through Arduino library manager
+  * BQ25622 - installed manually by copying the library from github to the arduino library folder: https://github.com/keith06388/PMIC_BQ25622
+  * With the programmer correctly connected (GND to battery or solar ground, and UPDI in contact with UPDI pin, the software can be installed using Sketch -> Upload using programmer
 * Latest software notes:
-*   Resolved issue with charger locking up after low voltage shutdown (but not completely dropped to 0V).  Screen now shuts off after dropping below 4.5V and turns back on above 5.0V
-*   Slight increase in efficiency by forcing Mosfet 1 and 4 always in low resistance state
-*   Resolved issue for OLED display when power is above 10W
+  * Resolved issue with charger locking up after low voltage shutdown (but not completely dropped to 0V).  Screen now shuts off after dropping below 4.5V and turns back on above 5.0V
+  * Slight increase in efficiency by forcing Mosfet 1 and 4 always in low resistance state
+  * Resolved issue for OLED display when power is above 10W
 
 
 ![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_105228.jpg)
