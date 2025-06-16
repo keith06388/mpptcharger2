@@ -82,6 +82,8 @@ Installation steps for Lixada panel:
 * Programming requires a power supply (either benchtop or solar) and UPDI programmer with connections to ground and the UPDI programming pin
 * Before programming for the first time, the "megaTinyCore" board needs to be installed in Arduino and the bootloader should be burned (see image below for bootloader and programming settings, the COM port will need to be selected for your programmer port)
 ![image](https://github.com/user-attachments/assets/0476ff46-d9d1-430e-9e03-7a6043f74d62)
+![image](https://github.com/user-attachments/assets/cb4acfae-8f27-4e84-902c-ca35da2bdcf4) ![image](https://github.com/user-attachments/assets/3185221e-8c06-43c4-b314-42ded2426048) ![image](https://github.com/user-attachments/assets/0e5e8512-aab5-45c6-a3fd-3f1f34c49393)
+
 * Once the bootloader is burned, the software can be installed.  The software is found in this repository and the following libraries need to be installed:
   * Tiny4KOLED - installed through Arduino library manager
   * BQ25622 - installed manually by downloading the .zip achive from github and installing by Sketch -> Include Library -> Add .Zip Library  The library is located here: https://github.com/keith06388/PMIC_BQ25622
