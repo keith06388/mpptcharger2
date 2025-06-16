@@ -1,7 +1,7 @@
 #include <Tiny4kOLED.h>
 #include "spleen.h"
 #include "batt.h"
-#include "PMIC_BQ25622.h"
+#include <PMIC_BQ25622.h>
 
 
 uint8_t i = 0;
@@ -19,10 +19,7 @@ int dp = 0;
 int dv = 0;
 uint16_t p0 = 0;
 int16_t il = 3200;
-// int minICHG = 0;      // Starting charge current in mA
-// int maxICHG = 3040;   // Maximum charge current in mA
-// int stepSize = 80;    // Step size in mA
-// int stepDelay = 1000 / ((maxICHG - minICHG) / stepSize); // Delay to complete in 1 sec
+bool oledon = 0;
 PMIC_BQ25622 bq25622;
 
 
@@ -37,7 +34,8 @@ void setup() {
   //Turn on screen and initialize
   digitalWrite(PIN_PA4,HIGH);
   oled.begin(72, 40, sizeof(tiny4koled_init_72x40br), tiny4koled_init_72x40br);
-  oled.on();
+  oled.off();
+  oledon = 0;
   oled.clear();
   //Initialize BQ25622e
   bq25622.reset(); //reset all registers to default
@@ -46,17 +44,17 @@ void setup() {
   bq25622.setCONV_RATE(true); //set continous adc 1s read
   bq25622.setADC_SAMPLE(1); //read adc in one shot (default)
   bq25622.setCONV_START(true); //read adc in one shot (default)
-  // bq25622.setQ1_FULLON(1); //Q1 low impedance
-  // bq25622.setQ4_FULLON(1); //Q4 low impedance
+  bq25622.setQ1_FULLON(1); //Q1 low impedance
+  bq25622.setQ4_FULLON(1); //Q4 low impedance
   bq25622.setTS_IGNORE(true);
-  bq25622.setVPMID_DIS(true);
-  bq25622.setTDIE_DIS(true);
-  bq25622.setTS_DIS(true);
-  bq25622.setVSYS_DIS(true);
-  bq25622.setIBUS_DIS(true);
-  bq25622.setVBUS_DIS(false);
-  bq25622.setVBAT_DIS(false);
-  bq25622.setIBAT_DIS(false);
+  bq25622.setVPMID_ADC_DIS(true);
+  bq25622.setTDIE_ADC_DIS(true);
+  bq25622.setTS_ADC_DIS(true);
+  bq25622.setVSYS_ADC_DIS(true);
+  bq25622.setIBUS_ADC_DIS(true);
+  bq25622.setVBUS_ADC_DIS(false);
+  bq25622.setVBAT_ADC_DIS(false);
+  bq25622.setIBAT_ADC_DIS(false);
   bq25622.setITERM(100);
   bq25622.setVREG(4200);
   bq25622.setVINDPM(vindpm);
@@ -76,7 +74,18 @@ void loop() {
       // Read voltage & current values
       vs = bq25622.getVBUSV();  
       vb = bq25622.getBATV();
-      ic = bq25622.getICHGR();  
+      ic = bq25622.getIBAT();  
+
+      // Turn off OLED if power too low
+      if ((vs < 4500) && (oledon == 1)) {
+        oled.off();
+        oledon = 0;
+      }
+      else if ((vs >= 5000) && (oledon == 0)) {
+        oled.on();
+        oledon = 1;
+        oled.clear();
+      }
 
       // Compute power (P = V * I)
       p = vb * (ic / 1000.0);  // Convert mA to A
@@ -137,18 +146,20 @@ void loop() {
     m = 0;
   }
   n = 0;
-  i = (i == 0) ? 1 : 0;  // Toggle `i` between 0 and 1
+  i = (i == 0) ? 1 : 0;  // Toggle `i` between 0 and 1 to flash charging icon, while charging
 }
 
+//Print output to screen
 void updateoled(uint16_t u, uint8_t x, uint16_t y, uint16_t z){
-  //oled.clear();
-  // digitalWrite(PIN_PA4,HIGH);
-  // oled.begin(72, 40, sizeof(tiny4koled_init_72x40br), tiny4koled_init_72x40br);
-  // oled.on();
   oled.setFont(FONTspleen);
   oled.setCursor(0,0); 
-  //float w = (u/1000.0)*(z/1000.0);
-  oled.print(u/1000.0,2);
+  //For > 10W, only use 1 decimal place to fit screen
+  if (p >= 10000) {
+    oled.print(u/1000.0,1);
+  }
+  else {
+    oled.print(u/1000.0,2);
+  }
   oled.setCursor(42,0); 
   oled.print("/");
   oled.setCursor(56,0);
@@ -163,6 +174,8 @@ void updateoled(uint16_t u, uint8_t x, uint16_t y, uint16_t z){
   oled.print(" VBAT");
 }
 
+
+//Approximate power bar calibrations for Vapcell p2150a cell
 int meter(float v, float a){
   int lvl;
   if (a>2000){
