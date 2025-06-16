@@ -77,6 +77,21 @@ Installation steps for Lixada panel:
 * Solder new assembled pcb with housing and leads to panel
 * Use epoxy to glue housing to panel
 
+## Software Install or Upgrade
+* UPDI programming can be performed with a cheap CH340 board and a Schottky diode installed across the TX and RX pins (with diode facing TX pin)
+* Programming requires a power supply (either benchtop or solar) and UPDI programmer with connections to ground and the UPDI programming pin
+* Before programming for the first time, the "megaTinyCore" board needs to be installed in Arduino and the bootloader should be burned (see image below for bootloader and programming settings, the COM port will need to be selected for your programmer port)
+* ![image](https://github.com/user-attachments/assets/0476ff46-d9d1-430e-9e03-7a6043f74d62)
+* Once the bootloader is burned, the software can be installed.  The software is found in this repository and the following libraries need to be installed:
+*   Tiny4KOLED - installed through Arduino library manager
+*   BQ25622 - installed manually by copying the library from github to the arduino library folder: https://github.com/keith06388/PMIC_BQ25622
+*   With the programmer correctly connected (GND to battery or solar ground, and UPDI in contact with UPDI pin, the software can be installed using Sketch -> Upload using programmer
+* Latest software notes:
+*   Resolved issue with charger locking up after low voltage shutdown (but not completely dropped to 0V).  Screen now shuts off after dropping below 4.5V and turns back on above 5.0V
+*   Slight increase in efficiency by forcing Mosfet 1 and 4 always in low resistance state
+*   Resolved issue for OLED display when power is above 10W
+
+
 ![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_105228.jpg)
 
 ![](https://github.com/keith06388/mpptcharger2/blob/main/Photos/20250328_104936.jpg)
