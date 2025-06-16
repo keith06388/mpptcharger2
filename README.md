@@ -86,7 +86,7 @@ Installation steps for Lixada panel:
 
 * Once the bootloader is burned, the software can be installed.  The software is found in this repository and the following libraries need to be installed:
   * Tiny4KOLED - installed through Arduino library manager
-  * BQ25622 - installed manually by downloading the .zip achive from github and installing by Sketch -> Include Library -> Add .Zip Library  The library is located here: https://github.com/keith06388/PMIC_BQ25622
+  * BQ25622 - installed manually by downloading the .zip archive from github and installing by Sketch -> Include Library -> Add .Zip Library  The library is located here: https://github.com/keith06388/PMIC_BQ25622
   * With the programmer correctly connected (GND to battery or solar ground, and UPDI in contact with UPDI pin, the software can be installed using Sketch -> Upload using programmer
 * Latest software notes:
   * Resolved issue with charger locking up after low voltage shutdown (but not completely dropped to 0V).  Screen now shuts off after dropping below 4.5V and turns back on above 5.0V
