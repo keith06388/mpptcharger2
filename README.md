@@ -20,7 +20,7 @@ Advantages of this design:
 
 ## PCB
 * Designed with easyeda software
-*   Project link: https://u.easyeda.com/keith06388/solar-mppt-charger-v4
+*   Project link: https://oshwlab.com/keith06388/solar-mppt-charger-v4
 * PCBA assembled by JLCPCB
 * Primary components:
   * BQ25622e - mppt solar battery charging chip
